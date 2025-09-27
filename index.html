@@ -5,26 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Awaken+ Career Diagnostic</title>
   <meta name="theme-color" content="#7c3aed" />
+
   <style>
-    :root{ --bg:#f7f9fc; --vh:1vh; }
-    html,body{height:100%;margin:0;background:var(--bg);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    /* make the app fill the real viewport height on mobile */
-    gradio-app{ display:block; width:100%; height:calc(var(--vh)*100); max-width:100%; margin:0 auto; }
-    .wrap{ max-width: 100%; margin:0 auto; padding:0; }
-    /* optional subtle container look */
-    gradio-app::part(app){ border-radius:12px; box-shadow:0 2px 16px rgba(16,24,40,.06); background:#fff; }
+    :root { --bg:#f7f9fc; --vh:1vh; }
+    html,body { margin:0; height:100%; background:var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    /* Make app fill the true viewport height on phones */
+    gradio-app { display:block; width:100%; height:calc(var(--vh) * 100); max-width:100%; margin:0 auto; }
+    /* Optional subtle card look (safe to keep) */
+    gradio-app::part(app) { border-radius:12px; box-shadow:0 2px 16px rgba(16,24,40,.06); background:#fff; }
   </style>
+
   <script>
-    // Mobile viewport height fix (iOS/Android browser chrome)
+    // Mobile viewport height fix (iOS/Android URL bar)
     const setVh = () => document.documentElement.style.setProperty('--vh', (window.innerHeight*0.01) + 'px');
     addEventListener('resize', setVh); addEventListener('orientationchange', setVh); setVh();
   </script>
 
-  <!-- Gradio web component (loads the app WITHOUT Hugging Face header) -->
+  <!-- Gradio web component (official). This embeds your Space WITHOUT the HF header. -->
   <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.44.1/gradio.js"></script>
 </head>
 <body>
-  <div class="wrap">
-    <!-- Point to YOUR Space host. No HF chrome will appear. -->
-    <gradi
+  <!-- IMPORTANT: keep this exact src (your hf.space host). No ?embed= needed. -->
+  <gradio-app src="https://awakenplus-career-transition.hf.space?__theme=light"></gradio-app>
+
+  <noscript>
+    <p style="text-align:center;margin-top:16px">
+      JavaScript is required. <a href="https://awakenplus-career-transition.hf.space">Open the diagnostic</a>.
+    </p>
+  </noscript>
+</body>
+</html>
