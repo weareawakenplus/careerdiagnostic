@@ -17,7 +17,7 @@
     @media (max-width:480px){ .wrap{padding:8px} }
   </style>
   <script>
-    // make iframe fill the real viewport height on iOS/Android
+    // Make iframe truly fill viewport on iOS/Android
     const setVh=()=>document.documentElement.style.setProperty('--vh', (window.innerHeight*0.01)+'px');
     addEventListener('resize', setVh); addEventListener('orientationchange', setVh); setVh();
   </script>
@@ -25,13 +25,15 @@
 <body>
   <div class="wrap">
     <div class="bar">
-      <a class="open" href="https://awakenplus-career-transition.hf.space?embed=true" target="_top" rel="noopener">
-        Open full screen
-      </a>
+      <!-- Optional: opens fully standalone if a user prefers -->
+      <a class="open" href="https://hf.space/embed/awakenplus/career-transition/+?__theme=light"
+         target="_top" rel="noopener">Open full screen</a>
     </div>
+
+    <!-- IMPORTANT: embed endpoint hides HF chrome -->
     <iframe
       class="frame"
-      src="https://awakenplus-career-transition.hf.space?embed=true&__theme=light"
+      src="https://hf.space/embed/awakenplus/career-transition/+?__theme=light"
       title="Awaken+ Career Diagnostic"
       allow="clipboard-read; clipboard-write; fullscreen"
       referrerpolicy="no-referrer"
