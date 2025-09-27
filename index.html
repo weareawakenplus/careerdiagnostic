@@ -2,20 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="refresh" content="0; url=https://awakenplus-career-transition.hf.space">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Awaken+ Career Diagnostic</title>
   <meta name="theme-color" content="#7c3aed" />
   <style>
-    html,body{height:100%;margin:0;padding:0;background:#f7f9fc;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;display:grid;place-items:center}
-    a{display:inline-block;background:#7c3aed;color:#fff;padding:12px 18px;border-radius:9999px;font-weight:800;text-decoration:none}
+    :root{ --bg:#f7f9fc; --maxw:860px; --radius:12px; --vh:1vh; }
+    html,body{height:100%;margin:0;background:var(--bg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f2430}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:12px}
+    .bar{display:flex;justify-content:flex-end;margin:8px 0 12px}
+    .open{background:#7c3aed;color:#fff;text-decoration:none;padding:10px 14px;border-radius:9999px;font-weight:800}
+    .frame{width:100%;height:calc(var(--vh) * 100);border:0;border-radius:var(--radius);
+      background:#fff;box-shadow:0 2px 16px rgba(16,24,40,.06)}
+    @media (max-width:480px){ .wrap{padding:8px} }
   </style>
   <script>
-    // JS redirect (faster and more reliable than meta on some browsers)
-    window.location.replace("https://awakenplus-career-transition.hf.space");
+    // make iframe fill the real viewport height on iOS/Android
+    const setVh=()=>document.documentElement.style.setProperty('--vh', (window.innerHeight*0.01)+'px');
+    addEventListener('resize', setVh); addEventListener('orientationchange', setVh); setVh();
   </script>
 </head>
 <body>
-  <a href="https://awakenplus-career-transition.hf.space">Continue to the Awaken+ Career Diagnostic</a>
+  <div class="wrap">
+    <div class="bar">
+      <a class="open" href="https://awakenplus-career-transition.hf.space?embed=true" target="_top" rel="noopener">
+        Open full screen
+      </a>
+    </div>
+    <iframe
+      class="frame"
+      src="https://awakenplus-career-transition.hf.space?embed=true&__theme=light"
+      title="Awaken+ Career Diagnostic"
+      allow="clipboard-read; clipboard-write; fullscreen"
+      referrerpolicy="no-referrer"
+      loading="eager"
+    ></iframe>
+  </div>
 </body>
 </html>
