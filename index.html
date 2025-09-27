@@ -18,22 +18,23 @@
   </style>
   <script>
     // Make iframe truly fill viewport on iOS/Android
-    const setVh=()=>document.documentElement.style.setProperty('--vh', (window.innerHeight*0.01)+'px');
+    const setVh=()=>document.documentElement.style.setProperty('--vh',(window.innerHeight*0.01)+'px');
     addEventListener('resize', setVh); addEventListener('orientationchange', setVh); setVh();
   </script>
 </head>
 <body>
   <div class="wrap">
     <div class="bar">
-      <!-- Optional: opens fully standalone if a user prefers -->
-      <a class="open" href="https://hf.space/embed/awakenplus/career-transition/+?__theme=light"
+      <!-- Optional: “Open full screen” without HF chrome -->
+      <a class="open"
+         href="https://huggingface.co/spaces/awakenplus/career-transition?embed=true&__theme=light"
          target="_top" rel="noopener">Open full screen</a>
     </div>
 
-    <!-- IMPORTANT: embed endpoint hides HF chrome -->
+    <!-- IMPORTANT: use huggingface.co/spaces ... ?embed=true (not *.hf.space) -->
     <iframe
       class="frame"
-      src="https://hf.space/embed/awakenplus/career-transition/+?__theme=light"
+      src="https://huggingface.co/spaces/awakenplus/career-transition?embed=true&__theme=light"
       title="Awaken+ Career Diagnostic"
       allow="clipboard-read; clipboard-write; fullscreen"
       referrerpolicy="no-referrer"
